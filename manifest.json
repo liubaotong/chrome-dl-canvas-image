@@ -1,0 +1,59 @@
+{
+    "name": "下载canvas图像",
+    "description": "下载canvas图像",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*",
+                "file:///*"
+            ],
+            "js": [
+                "js/content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "scripting",
+        "contextMenus",
+        "downloads",
+        "webNavigation"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "128": "images/icons/100.png",
+            "32": "images/icons/100.png"
+        }
+    },
+    "options_page": "options.html",
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "js/*"
+            ],
+            "matches": [
+                "https://*/*",
+                "http://*/*"
+            ]
+        }
+    ],
+    "icons": {
+        "128": "images/logo.png",
+        "32": "images/logo.png",
+        "64": "images/logo.png"
+    }
+}
